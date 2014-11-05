@@ -3,21 +3,24 @@ git = 'https://github.com/loint/setup/archive/master.zip'
 
 modules = [
     'tools', #ok
-    'node', #ok
-    'nginx', #ok
-    'memcached', #ok
-    'php', #ok
-    'phalcon', #ok
-    'zephir', #ok
-    'mongo', #ok
-    'mysql', 
-    'redis', #ok
-    'varnish', #ok
-    'haproxy', #ok
-    'proftpd', #ok
+    'node', #ok v
+    'nginx', #ok v
+    'memcached', #ok v
+    'php', #ok v
+    'phalcon', #ok v
+    'zephir', #ok v
+    'mongo', #ok v   
+    'redis', #ok v
+    'varnish', #ok v
+    'haproxy', #ok v
+    'proftpd', #ok v
+    'less', #ok v
+    'coffee', #ok v
+    'phpunit',
+    'mysql', #ok
     'app',
     'freemem',
-    #phpunit, coffee, less - not yet,
+    #phpunit, coffee - not yet,
 ]
 
 app = {
