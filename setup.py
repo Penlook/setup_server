@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-git = 'https://github.com/loint/setup/archive/master.zip'
+git = 'https://github.com/Penlook/setup_server/archive/development.zip'
 
 modules = [
     'tools', #ok
@@ -37,9 +37,9 @@ from os import *
 tmp = path.abspath(curdir)
 
 paths = {
-    'package': path.realpath(tmp)+'/setup-master',
-    'module': path.realpath(tmp)+'/setup-master/modules',
-    'config': path.realpath(tmp)+'/setup-master/config',
+    'package': path.realpath(tmp)+'/setup_server-development',
+    'module': path.realpath(tmp)+'/setup_server-development/modules',
+    'config': path.realpath(tmp)+'/setup_server-development/config',
     'host': '/home',
 }
 
@@ -89,12 +89,12 @@ def run(cmd):
 def load():
     run('cd '+tmp)
     run('yum install -y unzip wget')
-    run('wget '+git+' -O setup-master.zip')
-    run('rm -rf ./setup-master')
-    run('unzip ./setup-master.zip')
-    run('rm -rf setup-master.zip')
+    run('wget '+git+' -O setup_server-development.zip')
+    run('rm -rf ./setup_server-development')
+    run('unzip ./setup_server-development.zip')
+    run('rm -rf setup_server-development.zip')
     run('cp -r '+res('mongo.repo')+' /etc/yum.repos.d/mongodb.repo')
-    run('chmod +x ./setup-master/modules/*')
+    run('chmod +x ./setup_server-development/modules/*')
 
 
 def main():
@@ -110,6 +110,6 @@ def main():
 
     run('chmod +x '+paths['package'] + '/service.py')
     run('mv '+paths['package'] + '/service.py /usr/bin/app')
-    run('rm -rf '+tmp+'/setup-master')
+    run('rm -rf '+tmp+'/setup_server-development')
 
 main()

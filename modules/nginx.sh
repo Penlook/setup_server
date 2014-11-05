@@ -9,7 +9,7 @@ cd nginx-1.7.3
 ./configure --sbin-path=/usr/sbin/nginx
 make -j4
 make install
-lssudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
+sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
 sudo chmod +x /etc/init.d/nginx
-yum install redhat-lsb
+yum install -y redhat-lsb
 
