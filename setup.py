@@ -17,7 +17,7 @@ modules = [
     'coffee', #ok v
     'phpunit',
     'mysql', #ok
-    #'nginx', #ok v
+    'nginx', #ok v
     'app',
     'freemem',
 
