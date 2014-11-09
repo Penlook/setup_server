@@ -2,8 +2,8 @@
 git = 'https://github.com/Penlook/setup_server/archive/development.zip'
 
 modules = [
-    'tools', #ok
-    'node', #ok v
+    'tools', 
+    'node', 
     'nginx', #ok v
     'memcached', #ok v
     'php', #ok v
