@@ -6,7 +6,7 @@
 wget http://nginx.org/download/nginx-1.7.3.tar.gz
 tar -xvf nginx-1.7.3.tar.gz
 cd nginx-1.7.3
-./configure --sbin-path=/usr/sbin/nginx --conf-path=/etc/init.d/nginx
+./configure --sbin-path=/usr/local/nginx/sbin/nginx --conf-path=/usr/local/nginx/conf/nginx.conf
 make -j4
 sudo make install
 sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
