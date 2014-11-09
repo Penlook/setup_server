@@ -4,7 +4,6 @@ git = 'https://github.com/Penlook/setup_server/archive/development.zip'
 modules = [
     'tools', 
     'node', 
-    'nginx', #ok v
     'memcached', #ok v
     'php', #ok v
     'phalcon', #ok v
@@ -18,8 +17,10 @@ modules = [
     'coffee', #ok v
     'phpunit',
     'mysql', #ok
+    #'nginx', #ok v
     'app',
     'freemem',
+
     #phpunit, coffee - not yet,
 ]
 
