@@ -61,7 +61,7 @@ configs = {
         'cp -r '+res('phalcon.ini') + ' /etc/php.d/phalcon.ini'
     ],
     'vsftp': [
-        'cp -r '+res('vsftpd.conf') + ' /etc/proftpd.conf', 
+        'cp -r '+res('proftpd.conf') + ' /etc/proftpd.conf', 
         "sed -i 's,\r,,;s, *$,,' /etc/proftpd.conf", 
         'setenforce 0',
         'useradd '+ftp['username'], 
