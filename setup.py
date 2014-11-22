@@ -60,7 +60,7 @@ configs = {
     'phalcon': [
         'cp -r '+res('phalcon.ini') + ' /etc/php.d/phalcon.ini'
     ],
-    'vsftp': [
+    'proftpd': [
         'cp -r '+res('proftpd.conf') + ' /etc/proftpd.conf', 
         "sed -i 's,\r,,;s, *$,,' /etc/proftpd.conf", 
         'setenforce 0',
@@ -104,7 +104,7 @@ def main():
 
     for module in modules:
         module_path = paths['module'] + '/' + module+'.sh'
-        run('sh '+module_path)
+        #run('sh '+module_path)
         if module in configs.keys():
             for cmd in configs[module]:
                 run(cmd)
