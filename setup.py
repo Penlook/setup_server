@@ -57,6 +57,7 @@ configs = {
     'nginx': [
         'cp -r '+res('nginx.conf') + ' /etc/nginx/nginx.conf',
         'cp -r '+res('nginx_default.conf') + ' /etc/nginx/conf.d/default.conf'
+        'cp -r '+res('db.conf') + ' /etc/nginx/conf.d/db.conf'
     ],
     'phalcon': [
         'cp -r '+res('phalcon.ini') + ' /etc/php.d/phalcon.ini'
@@ -69,6 +70,9 @@ configs = {
         'echo "'+ftp['username']+':'+ftp['password']+'" | chpasswd',
         'chown '+ftp['username']+':'+ftp['username']+' '+paths['host']+'/'+app['app']+' -R ',
     ], 
+    'mongo':[
+        'cp -r '+res('mongo.ini') + ' /etc/php.d/mongo.ini'
+    ],
     'redis':[
         'cp -r '+res('redis.ini') + ' /etc/php.d/redis.ini'
     ],
