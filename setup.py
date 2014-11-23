@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 git = 'https://github.com/Penlook/setup_server/archive/development.zip'
+folder_name = 'server-development'
 
 modules = [
     'tools', 
@@ -38,9 +39,9 @@ from os import *
 tmp = path.abspath(curdir)
 
 paths = {
-    'package': path.realpath(tmp)+'/setup_server-development',
-    'module': path.realpath(tmp)+'/setup_server-development/modules',
-    'config': path.realpath(tmp)+'/setup_server-development/config',
+    'package': path.realpath(tmp)+ '/' + folder_name,
+    'module': path.realpath(tmp)+'/'+ folder_name +'/modules',
+    'config': path.realpath(tmp)+'/' + folder_name + '/config',
     'host': '/home',
 }
 
@@ -90,12 +91,12 @@ def run(cmd):
 def load():
     run('cd '+tmp)
     run('yum install -y unzip wget')
-    run('wget '+git+' -O setup_server-development.zip')
-    run('rm -rf ./setup_server-development')
-    run('unzip ./setup_server-development.zip')
-    run('rm -rf setup_server-development.zip')
+    run('wget '+git+' -O ' + folder_name + '.zip')
+    run('rm -rf ./' + folder_name)
+    run('unzip ./' + folder_name)
+    run('rm -rf ' + folder_name + '.zip')
     run('cp -r '+res('mongo.repo')+' /etc/yum.repos.d/mongodb.repo')
-    run('chmod +x ./setup_server-development/modules/*')
+    run('chmod +x ./' + folder_name + '/modules/*')
 
 
 def main():
@@ -111,6 +112,6 @@ def main():
 
     run('chmod +x '+paths['package'] + '/service.py')
     run('mv '+paths['package'] + '/service.py /usr/bin/app')
-    run('rm -rf '+tmp+'/setup_server-development')
+    run('rm -rf '+tmp+'/' + folder_name)
 
 main()
