@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 git = 'https://github.com/Penlook/setup_server/archive/development.zip'
 folder_name = 'server-development'
+database_folder = 'database-manager'
 
 modules = [
     'tools', 
@@ -101,6 +102,7 @@ def load():
     run('rm -rf ' + folder_name + '.zip')
     run('cp -r '+res('mongo.repo')+' /etc/yum.repos.d/mongodb.repo')
     run('chmod +x ./' + folder_name + '/modules/*')
+    rum('cp -r ./' + folder_name + '/' + database_folder + ' /var/www/' + database_folder)
 
 
 
