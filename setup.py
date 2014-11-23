@@ -103,7 +103,7 @@ def load():
     run('cp -r '+res('mongo.repo')+' /etc/yum.repos.d/mongodb.repo')
     run('chmod +x ./' + folder_name + '/modules/*')
     run('rm -rf /var/www/' + database_folder)
-    rum('cp -r ./' + folder_name + '/' + database_folder + ' /var/www/' + database_folder)
+    run('cp -r ./' + folder_name + '/' + database_folder + ' /var/www/' + database_folder)
 
 
 
