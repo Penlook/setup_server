@@ -1,4 +1,4 @@
 setup
 =====
 
-curl https://raw.githubusercontent.com/loint/setup/master/setup.py | python
+curl https://raw.githubusercontent.com/Penlook/server/development/setup.py | python
