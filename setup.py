@@ -103,19 +103,20 @@ def load():
     run('chmod +x ./' + folder_name + '/modules/*')
 
 
+
 def main():
     load()
-    run('cd '+tmp)
+    # run('cd '+tmp)
 
-    for module in modules:
-        module_path = paths['module'] + '/' + module+'.sh'
-        run('sh '+module_path)
-        if module in configs.keys():
-            for cmd in configs[module]:
-                run(cmd)
+    # for module in modules:
+    #     module_path = paths['module'] + '/' + module+'.sh'
+    #     run('sh '+module_path)
+    #     if module in configs.keys():
+    #         for cmd in configs[module]:
+    #             run(cmd)
 
-    run('chmod +x '+paths['package'] + '/service.py')
-    run('mv '+paths['package'] + '/service.py /usr/bin/app')
-    run('rm -rf '+tmp+'/' + folder_name)
+    # run('chmod +x '+paths['package'] + '/service.py')
+    # run('mv '+paths['package'] + '/service.py /usr/bin/app')
+    # run('rm -rf '+tmp+'/' + folder_name)
 
 main()
