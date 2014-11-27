@@ -106,7 +106,7 @@ def load():
 
 
 def main():
-    load()
+    #load()
     run('cd '+tmp)
 
     for module in modules:
