@@ -22,8 +22,6 @@ modules = [
     'nginx', #ok v
     'app',
     'freemem',
-
-    #phpunit, coffee - not yet,
 ]
 
 app = {
