@@ -56,7 +56,6 @@ configs = {
     'nginx': [
         'cp -r '+res('nginx.conf') + ' /etc/nginx/nginx.conf',
         'cp -r '+res('nginx_default.conf') + ' /etc/nginx/conf.d/default.conf'
-        'cp -r '+res('db.conf') + ' /etc/nginx/conf.d/db.conf'
     ],
     'phalcon': [
         'cp -r '+res('phalcon.ini') + ' /etc/php.d/phalcon.ini'
