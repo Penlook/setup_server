@@ -9,7 +9,7 @@ modules = [
     'memcached', #ok v
     'php', #ok v
     'phalcon', #ok v
-    'zephir', #ok v
+    #'zephir', #ok v
     'mongo', #ok v   
     'redis', #ok v
     'varnish', #ok v
