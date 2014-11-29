@@ -1,0 +1,13 @@
+USER=$(whoami)
+echo "You are $USER"
+if [ "$USER" == "root" ]
+then
+echo "Can not compile with root permission !"
+exit
+fi
+
+clear
+echo "$USER is compiling Zephir ... !"
+cd /home/$USER
+sudo zephir build
+sudo service php-fpm restart

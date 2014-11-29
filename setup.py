@@ -82,6 +82,7 @@ configs = {
         'mv ./'+app['app']+' '+paths['host']+'/'+app['app'],
         'chmod -R a+w '+paths['host']+'/'+app['app']+'/app/cache',
         'cd $TMP',
+        'cp -r '+res('zep') + ' /usr/bin/zep'
     ],
 }
 
