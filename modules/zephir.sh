@@ -11,8 +11,10 @@ rm -rf ../json-c
 yum install -y re2c
 
 cd /usr/local/src
-git clone https://github.com/phalcon/zephir
-cd zephir
+wget https://github.com/darkgaro/zephir
+unzip master.zip
+rm -rf master.zip
+cd zephir-master
 ./install -c
 rm -rf /usr/bin/zephir
 ln -s /usr/local/bin/zephir /usr/bin/zephir
