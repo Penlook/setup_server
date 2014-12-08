@@ -1,5 +1,5 @@
 #!/bin/bash
-TMP=`pwd`
+cd /tmp
 
 git clone --depth=1 git://github.com/phalcon/cphalcon.git
 cd cphalcon/build
@@ -13,4 +13,4 @@ cd phalcon-devtools
 ./phalcon.sh
 ln -s /usr/local/src/phalcon-devtools/phalcon.php /usr/bin/phalcon
 
-cd $TMP
+cd /tmp

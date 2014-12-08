@@ -1,5 +1,5 @@
 #!/bin/bash
-TMP=`pwd`
+cd /tmp
 
 git clone https://github.com/json-c/json-c.git
 cd json-c
@@ -19,4 +19,4 @@ cd zephir-master
 rm -rf /usr/bin/zephir
 ln -s /usr/local/bin/zephir /usr/bin/zephir
 
-cd $TMP
+cd /tmp
