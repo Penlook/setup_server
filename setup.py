@@ -81,7 +81,7 @@ configs = {
     ],
     'proftpd': [
         copy(res('proftpd.conf'), '/etc/proftpd.conf'),
-        "sed -i 's,\r,,;s, *$,,' /etc/proftpd.conf"
+        "sed -i 's,\r,,;s, *$,,' /etc/proftpd.conf",
         'setenforce 0',
         'useradd ' + account['username'],
         'echo "' + account['username'] + ':' + account['password'] + '" | chpasswd',
