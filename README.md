@@ -31,7 +31,7 @@ curl https://raw.githubusercontent.com/Penlook/server/master/setup.py | python
 #Information
 
 ###FTP
-	user: admin
+	user: test
 	password: 123456789
 
 ###MySQL
