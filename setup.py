@@ -19,8 +19,7 @@ modules = [
     'phpunit',
     'mysql',
     'nginx',
-    'app',
-    'freemem',
+    'app'
 ]
 
 app = {
@@ -134,6 +133,6 @@ def main():
     run('mv ' + paths['package'] + '/service.py /usr/bin/app')
     run('mv ' + paths['module'] + '/freemem.sh /usr/bin/clean')
     run('rm -rf '+ tmp + '/*')
-    run('app start')
+    run('clean && app start')
 
 main()
