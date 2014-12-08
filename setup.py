@@ -83,7 +83,9 @@ configs = {
         'chown ' + ftp['username'] + ':root ' + paths['host'] + '/' + app['app'] + ' -R ',
     ],
     'mongo':[
-        copy(res('mongo.ini'), '/etc/php.d/mongo.ini')
+        copy(res('mongo.ini'), '/etc/php.d/mongo.ini'),
+        delete('/var/lib/mongo/mongod.lock'),
+        'sudo -u mongod mongod -f /etc/mongod.conf --repair'
     ],
     'redis':[
         copy(res('redis.ini'), '/etc/php.d/redis.ini')
