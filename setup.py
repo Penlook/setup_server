@@ -29,9 +29,9 @@ app = {
     'app': 'sample'
 }
 
-ftp = {
-    'username': 'sample',
-    'password': '12345'
+account = {
+    'username': 'admin',
+    'password': '123456789'
 }
 
 from os import *
@@ -80,9 +80,9 @@ configs = {
         copy(res('proftpd.conf'), '/etc/proftpd.conf'),
         "sed -i 's,\r,,;s, *$,,' /etc/proftpd.conf"
         'setenforce 0',
-        'useradd ' + ftp['username'],
-        'echo "' + ftp['username'] + ':' + ftp['password'] + '" | chpasswd',
-        'chown ' + ftp['username'] + ':root ' + paths['host'] + '/' + app['app'] + ' -R ',
+        'useradd ' + account['username'],
+        'echo "' + account['username'] + ':' + account['password'] + '" | chpasswd',
+        'chown ' + account['username'] + ':root ' + paths['host'] + '/' + app['app'] + ' -R ',
     ],
     'mongo':[
         copy(res('mongo.ini'), '/etc/php.d/mongo.ini'),
@@ -93,11 +93,14 @@ configs = {
     'redis':[
         copy(res('redis.ini'), '/etc/php.d/redis.ini')
     ],
+    'mysql':[
+        "/usr/bin/mysqladmin -u root password '" + account['password'] + "'"
+    ],
     'app': [
         'TMP=`pwd`',
         delete(paths['host'] + '/' + app['app']),
         'phalcon create-project ' + app['app'],
-        'chown ' + ftp['username'] + ':root ' + app['app'] + ' -R',
+        'chown ' + account['username'] + ':root ' + app['app'] + ' -R',
         'mv ./' + app['app'] + ' ' + paths['host'] + '/' + app['app'],
         'chmod -R a+w ' + paths['host'] + '/' + app['app'] + '/app/cache',
         'cd $TMP',
