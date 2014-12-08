@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-branch='master'
+branch = 'master'
 git = 'https://github.com/Penlook/setup_server/archive/' + branch + '.zip'
 folder_name = 'server-' + branch
 database_folder = 'database-manager'
