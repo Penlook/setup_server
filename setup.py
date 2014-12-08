@@ -79,9 +79,9 @@ configs = {
         copy(res('proftpd.conf'), '/etc/proftpd.conf'),
         "sed -i 's,\r,,;s, *$,,' /etc/proftpd.conf"
         'setenforce 0',
-        'useradd '+ftp['username'],
-        'echo "'+ftp['username']+':'+ftp['password']+'" | chpasswd',
-        'chown '+ftp['username']+':'+ftp['username']+' '+paths['host']+'/'+app['app']+' -R ',
+        'useradd ' + ftp['username'],
+        'echo "' + ftp['username'] + ':' + ftp['password'] + '" | chpasswd',
+        'chown ' + ftp['username'] + ':root ' + paths['host'] + '/' + app['app'] + ' -R ',
     ],
     'mongo':[
         copy(res('mongo.ini'), '/etc/php.d/mongo.ini')
@@ -93,7 +93,7 @@ configs = {
         'TMP=`pwd`',
         delete(paths['host'] + '/' + app['app']),
         'phalcon create-project ' + app['app'],
-        'chown ' + ftp['username'] + ':' + ftp['username'] + ' ' + app['app'] + ' -R',
+        'chown ' + ftp['username'] + ':root ' + app['app'] + ' -R',
         'mv ./' + app['app'] + ' ' + paths['host'] + '/' + app['app'],
         'chmod -R a+w ' + paths['host'] + '/' + app['app'] + '/app/cache',
         'cd $TMP',
