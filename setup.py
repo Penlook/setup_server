@@ -11,6 +11,7 @@ modules = [
     'ruby',
     'java',
     'go',
+    'python',
     'memcached',
     'phalcon',
     'zephir',

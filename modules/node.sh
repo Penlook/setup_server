@@ -6,6 +6,7 @@ curl http://npmjs.org/install.sh | sh
 
 npm install -g coffee-script
 npm install -g less
+npm install -g less-plugin-clean-css
 npm install -g mysql
 npm install -g mongodb
 npm install -g redis

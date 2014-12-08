@@ -15,6 +15,8 @@ curl https://raw.githubusercontent.com/Penlook/server/master/setup.py | python
 - PHP
 - Ruby
 - Java
+- Python
+- Perl
 - Golang
 - MySQL
 - MongoDB
@@ -41,3 +43,10 @@ curl https://raw.githubusercontent.com/Penlook/server/master/setup.py | python
 ###Mongo
 	user: admin
 	password: admin
+
+###Command
+	coffee : Coffee Complier
+	lessc : Less compiler
+	clean : Linux free memory
+	zep : Zephir compiler
+
