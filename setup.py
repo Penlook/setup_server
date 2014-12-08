@@ -54,6 +54,9 @@ def res(file_name):
 def copy(file, destination):
     return 'cp -r ' + file + ' ' + destination
 
+def move(file, destination):
+    return 'mv ' + file + ' ' + destination
+
 def create(folder):
     return 'mkdir -p ' + folder
 
@@ -104,10 +107,8 @@ configs = {
         'mv ./' + app['app'] + ' ' + paths['host'] + '/' + app['app'],
         'chmod -R a+w ' + paths['host'] + '/' + app['app'] + '/app/cache',
         'cd $TMP',
-        copy(res('zep'), '/usr/bin/zep')
     ],
 }
-
 
 def load():
     run('cd ' + tmp)
@@ -127,6 +128,7 @@ def main():
     load()
     run('cd ' + tmp)
 
+    # Configuration for components
     for module in modules:
         module_path = paths['module'] + '/' + module + '.sh'
         run('sh '+module_path)
@@ -134,12 +136,20 @@ def main():
             for cmd in configs[module]:
                 run(cmd)
 
+    # Command can excute
     run('chmod +x ' + paths['package'] + '/service.py')
     run('chmod +x ' + paths['module'] + '/freemem.sh')
+    run('chmod +x ' + paths['config'] + '/zep')
 
-    run('mv ' + paths['package'] + '/service.py /usr/bin/app')
-    run('mv ' + paths['module'] + '/freemem.sh /usr/bin/clean')
-    run('rm -rf '+ tmp + '/*')
+    # Move command to bin
+    run(move(res('zep'), '/usr/bin/zep'))
+    run(move(paths['package'] + '/service.py',' /usr/bin/app'))
+    run(move(paths['module'] + '/freemem.sh', '/usr/bin/clean'))
+
+    # Clean up installer
+    run(delete(tmp + '/*'))
+
+    # Start service on server
     run('clean && app start')
 
 main()
