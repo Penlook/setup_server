@@ -16,8 +16,6 @@ modules = [
     'varnish',
     'haproxy',
     'proftpd',
-    'less',
-    'coffee',
     'phpunit',
     'mysql',
     'nginx',

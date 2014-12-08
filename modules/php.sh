@@ -9,9 +9,6 @@ rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 yum install -y libyaml-devel
 echo "" | pecl install yaml
 
-
-
-echo "no" | pecl install mongo
 pecl install redis
-echo "yes" | pecl install mongo  
+echo "yes" | pecl install mongo
 pecl install igbinary
