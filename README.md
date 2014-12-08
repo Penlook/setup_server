@@ -4,6 +4,10 @@ One click to install development server
 ```
 curl https://raw.githubusercontent.com/Penlook/server/master/setup.py | python
 ```
+#Prerequisites
+- OS  : CentOS 6.5
+- HDD : >= 8 GB
+- RAM : >= 512 MB
 
 #Software
 - Development Tools
