@@ -7,8 +7,11 @@ database_folder = 'database-manager'
 modules = [
     'tools',
     'node',
-    'memcached',
     'php',
+    'ruby',
+    'java',
+    'go',
+    'memcached',
     'phalcon',
     'zephir',
     'mongo',
@@ -84,6 +87,7 @@ configs = {
     'mongo':[
         copy(res('mongo.ini'), '/etc/php.d/mongo.ini'),
         delete('/var/lib/mongo/mongod.lock'),
+        'pkill mongo',
         'sudo -u mongod mongod -f /etc/mongod.conf --repair'
     ],
     'redis':[
