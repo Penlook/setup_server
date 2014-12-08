@@ -26,11 +26,11 @@ modules = [
 ]
 
 app = {
-    'app': 'admin'
+    'app': 'test'
 }
 
 account = {
-    'username': 'admin',
+    'username': 'test',
     'password': '123456789'
 }
 
