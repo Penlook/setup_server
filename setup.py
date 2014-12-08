@@ -128,7 +128,10 @@ def main():
                 run(cmd)
 
     run('chmod +x ' + paths['package'] + '/service.py')
+    run('chmod +x ' + paths['module'] + '/freemem.sh')
+
     run('mv ' + paths['package'] + '/service.py /usr/bin/app')
+    run('mv ' + paths['module'] + '/freemem.sh /usr/bin/clean')
     run('rm -rf '+ tmp + '/*')
     run('app start')
 
