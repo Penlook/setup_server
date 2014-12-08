@@ -26,7 +26,7 @@ modules = [
 ]
 
 app = {
-    'app': 'sample'
+    'app': 'admin'
 }
 
 account = {
