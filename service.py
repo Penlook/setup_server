@@ -14,8 +14,8 @@ status = argv[1]
 services = [
     'php-fpm',
     'nginx',
-    #'mongod',
-    #'redis',
+    'mongod',
+    'redis',
     #'memcached',
     #'varnish',
     #'haproxy',
@@ -28,8 +28,8 @@ def run(cmd):
 
 
 # Pre-process
-run('setenforce 0');
+run('setenforce 0')
 
 for service_name in services:
-    cmd = 'service '+service_name+' '+status
+    cmd = 'service ' + service_name + ' ' + status
     run(cmd)

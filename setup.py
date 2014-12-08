@@ -6,20 +6,20 @@ database_folder = 'database-manager'
 modules = [
     'tools',
     'node',
-    'memcached', #ok v
-    'php', #ok v
-    'phalcon', #ok v
-    'zephir', #ok v
-    'mongo', #ok v
-    'redis', #ok v
-    'varnish', #ok v
-    'haproxy', #ok v
-    'proftpd', #ok v
-    'less', #ok v
-    'coffee', #ok v
+    'memcached',
+    'php',
+    'phalcon',
+    'zephir',
+    'mongo',
+    'redis',
+    'varnish',
+    'haproxy',
+    'proftpd',
+    'less',
+    'coffee',
     'phpunit',
-    'mysql', #ok
-    'nginx', #ok v
+    'mysql',
+    'nginx',
     'app',
     'freemem',
 ]
@@ -45,7 +45,7 @@ paths = {
 }
 
 def run(cmd):
-    system(cmd)
+    system('sudo ' + cmd)
 
 def res(file_name):
     return paths['config'] + '/' + file_name
@@ -129,6 +129,7 @@ def main():
 
     run('chmod +x ' + paths['package'] + '/service.py')
     run('mv ' + paths['package'] + '/service.py /usr/bin/app')
-    run('rm -rf '+ tmp + '/' + folder_name)
+    run('rm -rf '+ tmp + '/*')
+    run('app start')
 
 main()
