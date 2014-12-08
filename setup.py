@@ -45,7 +45,7 @@ paths = {
 }
 
 def run(cmd):
-    system('sudo ' + cmd)
+    system(cmd)
 
 def res(file_name):
     return paths['config'] + '/' + file_name
