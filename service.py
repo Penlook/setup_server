@@ -16,7 +16,7 @@ services = [
     'nginx',
     'mongod',
     'redis',
-    'mysql',
+    'mysqld',
     #'memcached',
     #'varnish',
     #'haproxy',
