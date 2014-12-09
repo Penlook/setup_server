@@ -10,5 +10,5 @@ yum install -y libyaml-devel
 echo "" | pecl install yaml
 
 pecl install redis
-echo "yes" | pecl install mongo
+echo "no" | pecl install mongo
 pecl install igbinary
