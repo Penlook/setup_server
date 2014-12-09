@@ -97,9 +97,6 @@ configs = {
     'redis':[
         copy(res('redis.ini'), '/etc/php.d/redis.ini')
     ],
-    'mysql':[
-        "/usr/bin/mysqladmin -u root password '" + account['password'] + "'"
-    ],
     'app': [
         'TMP=`pwd`',
         delete(paths['host'] + '/' + app['app']),
@@ -152,5 +149,8 @@ def main():
 
     # Start service on server
     run('clean && app start')
+
+    # MySQL Configuration
+    run("/usr/bin/mysqladmin -u root password '" + account['password'] + "'")
 
 main()
