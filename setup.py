@@ -107,7 +107,7 @@ configs = {
 }
 
 def load():
-    os.chdir(tmp)
+    chdir(tmp)
     run(yum('unzip wget'))
     run('wget ' + git + ' -O ' + folder_name + '.zip')
     run(delete('./' + folder_name))
@@ -122,7 +122,7 @@ def load():
 
 def main():
     load()
-    os.chdir(tmp)
+    chdir(tmp)
 
     # Configuration for components
     for module in modules:
