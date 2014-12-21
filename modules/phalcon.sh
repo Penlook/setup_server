@@ -1,5 +1,5 @@
 #!/bin/bash
-TMP=`pwd`
+TMP=/tmp
 
 git clone --depth=1 git://github.com/phalcon/cphalcon.git
 cd cphalcon/build

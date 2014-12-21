@@ -98,18 +98,16 @@ configs = {
         copy(res('redis.ini'), '/etc/php.d/redis.ini')
     ],
     'app': [
-        'TMP=`pwd`',
         delete(paths['host'] + '/' + app['app']),
         'phalcon create-project ' + app['app'],
         'chown ' + account['username'] + ':root ' + app['app'] + ' -R',
         'mv ./' + app['app'] + ' ' + paths['host'] + '/' + app['app'],
         'chmod -R a+w ' + paths['host'] + '/' + app['app'] + '/app/cache',
-        'cd $TMP',
     ],
 }
 
 def load():
-    run('cd ' + tmp)
+    os.chdir(tmp)
     run(yum('unzip wget'))
     run('wget ' + git + ' -O ' + folder_name + '.zip')
     run(delete('./' + folder_name))
@@ -124,7 +122,7 @@ def load():
 
 def main():
     load()
-    run('cd ' + tmp)
+    os.chdir(tmp)
 
     # Configuration for components
     for module in modules:
