@@ -1,6 +1,6 @@
 Koding VPS
 =====
-One click to development server based on Koding
+One click to setup development environment based on Koding - Unbuntu Server
 ```
 curl https://raw.githubusercontent.com/penlook/server/koding/koding.py | python
 ```
@@ -24,10 +24,4 @@ curl https://raw.githubusercontent.com/penlook/server/koding/koding.py | python
 ###Mongo
 	user: admin
 	password: admin
-
-###Command
-	coffee : Coffee Complier
-	lessc : Less compiler
-	clean : Linux free memory
-	zep : Zephir compiler
 
