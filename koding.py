@@ -125,7 +125,7 @@ def main():
     # Configuration for components
     for module in modules:
         module_path = paths['module'] + '/' + module + '.sh'
-        run('sudo sh '+module_path)
+        run('sh '+module_path)
         if module in configs.keys():
             for cmd in configs[module]:
                 run(cmd)
