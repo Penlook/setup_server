@@ -114,7 +114,7 @@ def load():
     run('unzip ./' + folder_name)
     run(delete(folder_name + '.zip'))
     run('chmod +x ./' + folder_name + '/modules/*')
-    run(delete('./' + database_folder))
+    #run(delete('./' + database_folder))
     #run(create('/var/www'))
     #run(copy('./' + folder_name + '/' + database_folder, ' /var/www/' + database_folder))
 
