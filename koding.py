@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 branch = 'koding'
-git = 'https://github.com/Penlook/setup_server/archive/' + branch + '.zip'
+git = 'https://github.com/penlook/server/archive/' + branch + '.zip'
 folder_name = 'server-' + branch
 database_folder = 'database-manager'
 
