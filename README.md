@@ -2,7 +2,7 @@ Koding VPS
 =====
 One click to development server based on Koding
 ```
-curl https://raw.githubusercontent.com/Penlook/server/koding/koding.py | python
+curl https://raw.githubusercontent.com/penlook/server/koding/koding.py | python
 ```
 #Prerequisites
 - OS  : CentOS 6.5
