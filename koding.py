@@ -5,25 +5,26 @@ folder_name = 'server-' + branch
 database_folder = 'database-manager'
 
 modules = [
-    'tools',
-    'node',
-    'php',
-    'ruby',
-    'java',
-    'go',
-    'python',
-    'memcached',
-    'phalcon',
-    'zephir',
-    'mongo',
-    'redis',
-    'varnish',
-    'haproxy',
-    'proftpd',
-    'phpunit',
-    'mysql',
-    'nginx',
-    'app'
+    #'tools',
+    #'node',
+    #'php',
+    #'ruby',
+    #'java',
+    #'go',
+    #'python',
+    #'memcached',
+    #'phalcon',
+    #'zephir',
+    #'mongo',
+    #'redis',
+    #'varnish',
+    #'haproxy',
+    #'proftpd',
+    #'phpunit',
+    #'mysql',
+    #'nginx',
+    #'app',
+    'ssh',
 ]
 
 app = {
@@ -64,9 +65,6 @@ def create(folder):
 def delete(file):
     return 'rm -rf ' + file
 
-def yum(names):
-    return 'yum install -y ' + names
-
 configs = {
     'php': [
         copy(res('php.ini'), '/etc/php.ini'),
@@ -104,21 +102,21 @@ configs = {
         'mv ./' + app['app'] + ' ' + paths['host'] + '/' + app['app'],
         'chmod -R a+w ' + paths['host'] + '/' + app['app'] + '/app/cache',
     ],
+    'ssh': [
+        copy(res('sshd_config'), '/etc/ssh/sshd_config')
+    ]
 }
 
 def load():
     chdir(tmp)
-    run(yum('unzip wget'))
     run('wget ' + git + ' -O ' + folder_name + '.zip')
     run(delete('./' + folder_name))
     run('unzip ./' + folder_name)
     run(delete(folder_name + '.zip'))
-    run(copy(res('mongo.repo'), '/etc/yum.repos.d/mongodb.repo'))
     run('chmod +x ./' + folder_name + '/modules/*')
     run(delete('./' + database_folder))
     run(create('/var/www'))
     run(copy('./' + folder_name + '/' + database_folder, ' /var/www/' + database_folder))
-
 
 def main():
     load()
@@ -132,23 +130,7 @@ def main():
             for cmd in configs[module]:
                 run(cmd)
 
-    # Command can excute
-    run('chmod +x ' + paths['package'] + '/service.py')
-    run('chmod +x ' + paths['module'] + '/freemem.sh')
-    run('chmod +x ' + paths['config'] + '/zep')
-
-    # Move command to bin
-    run(move(res('zep'), '/usr/bin/zep'))
-    run(move(paths['package'] + '/service.py',' /usr/bin/app'))
-    run(move(paths['module'] + '/freemem.sh', '/usr/bin/clean'))
-
     # Clean up installer
     run(delete(tmp + '/*'))
-
-    # Start service on server
-    run('clean && app start')
-
-    # MySQL Configuration
-    run("/usr/bin/mysqladmin -u root password '" + account['password'] + "'")
 
 main()
