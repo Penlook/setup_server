@@ -1,8 +1,8 @@
-Development Server 
+Koding VPS
 =====
-One click to install development server
+One click to setup development environment based on Koding - Unbuntu Server
 ```
-curl https://raw.githubusercontent.com/Penlook/server/master/setup.py | python
+curl https://raw.githubusercontent.com/penlook/server/koding/koding.py | python
 ```
 #Prerequisites
 - OS  : CentOS 6.5
@@ -10,27 +10,8 @@ curl https://raw.githubusercontent.com/Penlook/server/master/setup.py | python
 - RAM : >= 512 MB
 
 #Software
-- Development Tools
-- Nodejs
-- PHP
-- Ruby
-- Java
-- Python
-- Perl
-- Golang
-- MySQL
-- MongoDB
-- Redis
-- Memcache
-- Phalcon
-- Zephir
-- Nginx
-- Varnish
-- HaProxy
-- PHPUnit
-- ProFTPD
-
-#Information
+- SSHD
+- FTP
 
 ###FTP
 	user: test
@@ -43,10 +24,4 @@ curl https://raw.githubusercontent.com/Penlook/server/master/setup.py | python
 ###Mongo
 	user: admin
 	password: admin
-
-###Command
-	coffee : Coffee Complier
-	lessc : Less compiler
-	clean : Linux free memory
-	zep : Zephir compiler
 
