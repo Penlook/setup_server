@@ -1,1 +1,11 @@
-yum install -y golang
+#!/bin/bash
+TMP=/usr/local/src
+sudo mkdir -p $TMP
+cd $TMP
+wget https://storage.googleapis.com/golang/go1.4.1.src.tar.gz
+tar -xvf go1.4.1.src.tar.gz
+rm -rf go1.4.1.src.tar.gz
+cd go/src
+sudo ./all.bash
+export PATH=$PATH:$TMP/go/bin
+export GOPATH=$HOME
