@@ -7,7 +7,9 @@ tar -xvf go1.4.1.src.tar.gz
 rm -rf go1.4.1.src.tar.gz
 cd go/src
 sudo ./all.bash
-PATH=$PATH:$TMP/go/bin
-export $PATH
-GOPATH=$HOME
-export $GOPATH
+GOSCRIPT="/etc/profile.d/golang.sh"
+sudo rm -rf $GOSCRIPT
+sudo touch $GOSCRIPT && sudo chmod a+w+x $GOSCRIPT
+echo "export PATH=\"\$PATH:/usr/local/src/go/bin\"" >> $GOSCRIPT
+echo -e "export GOPATH=\"$HOME\"" >> $GOSCRIPT
+source $GOSCRIPT
