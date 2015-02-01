@@ -5,26 +5,26 @@ folder_name = 'setup-' + branch
 database_folder = 'database-manager'
 
 modules = [
-    'tools',
-    'node',
-    'php',
+    #'tools',
+    #'node',
+    #'php',
     #'ruby',
     #'java',
-    'gt',
+    'go',
     'dart',
-    'python',
+    #'python',
     #'memcached',
-    'phalcon',
+    #'phalcon',
     #'zephir',
-    'mongo',
-    'redis',
+    #'mongo',
+    #'redis',
     #'varnish',
     #'haproxy',
-    'proftpd',
+    #'proftpd',
     #'phpunit',
-    'mysql',
-    'nginx',
-    'app'
+    #'mysql',
+    #'nginx',
+    #'app'
 ]
 
 app = {
