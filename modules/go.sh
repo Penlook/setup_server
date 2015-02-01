@@ -7,5 +7,7 @@ tar -xvf go1.4.1.src.tar.gz
 rm -rf go1.4.1.src.tar.gz
 cd go/src
 sudo ./all.bash
-export PATH=$PATH:$TMP/go/bin
-export GOPATH=$HOME
+PATH=$PATH:$TMP/go/bin
+export $PATH
+GOPATH=$HOME
+export $GOPATH

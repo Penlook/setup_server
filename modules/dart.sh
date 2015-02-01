@@ -5,5 +5,7 @@ cd $TMP
 wget https://storage.googleapis.com/dart-archive/channels/stable/release/42828/sdk/dartsdk-linux-ia32-release.zip
 unzip dartsdk-linux-ia32-release.zip
 rm -rf dartsdk-linux-ia32-release.zip
-export PATH=$PATH:$TMP/dart-sdk/bin
-export GOPATH=$HOME
+PATH=$PATH:$TMP/dart-sdk/bin
+export $PATH
+GOPATH=$HOME
+export $GOPATH
