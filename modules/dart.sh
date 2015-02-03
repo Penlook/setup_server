@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 TMP=/usr/local/src
 sudo mkdir -p $TMP
 cd $TMP
