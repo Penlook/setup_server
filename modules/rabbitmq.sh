@@ -1,15 +1,15 @@
 #!/bin/bash
-yum install -y erlang
+sudo yum install -y erlang
 sudo rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
 sudo yum install rabbitmq-server--1.noarch.rpm
-git clone git://github.com/joemiller/joemiller.me-intro-to-sensu.git
+sudo git clone git://github.com/joemiller/joemiller.me-intro-to-sensu.git
 cd joemiller.me-intro-to-sensu/
-./ssl_certs.sh clean
-./ssl_certs.sh generate
-mkdir /etc/rabbitmq/ssl
-cp server_key.pem /etc/rabbitmq/ssl/
-cp server_cert.pem /etc/rabbitmq/ssl/
-cp testca/cacert.pem /etc/rabbitmq/ssl/
+sudo ./ssl_certs.sh clean
+sudo ./ssl_certs.sh generate
+sudo mkdir /etc/rabbitmq/ssl
+sudo cp server_key.pem /etc/rabbitmq/ssl/
+sudo cp server_cert.pem /etc/rabbitmq/ssl/
+sudo cp testca/cacert.pem /etc/rabbitmq/ssl/
 [
     {rabbit, [
     {ssl_listeners, [5671]},
@@ -20,9 +20,9 @@ cp testca/cacert.pem /etc/rabbitmq/ssl/
                    {fail_if_no_peer_cert,true}]}
   ]}
 ].
-rabbitmq-plugins enable rabbitmq_management
-/sbin/chkconfig rabbitmq-server on
+sudo rabbitmq-plugins enable rabbitmq_management
+sudo /sbin/chkconfig rabbitmq-server on
 /etc/init.d/rabbitmq-server start
-rabbitmqctl add_vhost /penlook
-rabbitmqctl add_user penlook penlook
-rabbitmqctl set_permissions -p /penlook penlook ".*" ".*" ".*"
+sudo rabbitmqctl add_vhost /penlook
+sudo rabbitmqctl add_user penlook penlook
+sudo rabbitmqctl set_permissions -p /penlook penlook ".*" ".*" ".*"
