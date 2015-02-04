@@ -6,11 +6,11 @@ database_folder = 'database-manager'
 
 modules = [
     #'tools',
-    #'node',
+    'node',
     #'php',
     #'ruby',
     #'java',
-    ,'rabbitmq',
+    'rabbitmq',
     'go',
     'dart',
     #'python',
