@@ -10,6 +10,7 @@ modules = [
     #'php',
     #'ruby',
     #'java',
+    ,'rabbitmq',
     'go',
     'dart',
     #'python',
