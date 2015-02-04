@@ -1,29 +1,31 @@
 #!/usr/bin/env python
 branch = 'master'
 git = 'https://github.com/penlook/setup/archive/' + branch + '.zip'
-folder_name = 'server-' + branch
+folder_name = 'setup-' + branch
 database_folder = 'database-manager'
 
 modules = [
-    'tools',
+    #'tools',
     'node',
-    'php',
+    #'php',
     #'ruby',
     #'java',
+    'rabbitmq',
     'go',
-    'python',
+    'dart',
+    #'python',
     #'memcached',
     #'phalcon',
     #'zephir',
-    'mongo',
-    'redis',
+    #'mongo',
+    #'redis',
     #'varnish',
     #'haproxy',
-    'proftpd',
+    #'proftpd',
     #'phpunit',
-    'mysql',
-    'nginx',
-    'app'
+    #'mysql',
+    #'nginx',
+    #'app'
 ]
 
 app = {

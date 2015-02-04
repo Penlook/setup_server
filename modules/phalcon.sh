@@ -1,10 +1,12 @@
 #!/bin/bash
 TMP=/tmp
+cd $TMP
 
 git clone --depth=1 git://github.com/phalcon/cphalcon.git
 cd cphalcon/build
 ./install
 cd $TMP
+
 rm -rf cphalcon
 
 cd /usr/local/src
