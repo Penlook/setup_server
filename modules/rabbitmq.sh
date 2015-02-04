@@ -10,7 +10,9 @@ sudo mkdir /etc/rabbitmq/ssl
 sudo cp server_key.pem /etc/rabbitmq/ssl/
 sudo cp server_cert.pem /etc/rabbitmq/ssl/
 sudo cp testca/cacert.pem /etc/rabbitmq/ssl/
-[
+cd /etc/rabbitmq/
+sudo touch rabbitmq.config && sudo chmod a+w+x rabbitmq.config
+echo "[
     {rabbit, [
     {ssl_listeners, [5671]},
     {ssl_options, [{cacertfile,"/etc/rabbitmq/ssl/cacert.pem"},
@@ -19,10 +21,10 @@ sudo cp testca/cacert.pem /etc/rabbitmq/ssl/
                    {verify,verify_peer},
                    {fail_if_no_peer_cert,true}]}
   ]}
-].
+]." >> rabbitmq.config
 sudo rabbitmq-plugins enable rabbitmq_management
 sudo /sbin/chkconfig rabbitmq-server on
-/etc/init.d/rabbitmq-server start
+sudo /etc/init.d/rabbitmq-server start
 sudo rabbitmqctl add_vhost /penlook
 sudo rabbitmqctl add_user penlook penlook
 sudo rabbitmqctl set_permissions -p /penlook penlook ".*" ".*" ".*"
