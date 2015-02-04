@@ -11,7 +11,7 @@ sudo cp server_key.pem /etc/rabbitmq/ssl/
 sudo cp server_cert.pem /etc/rabbitmq/ssl/
 sudo cp testca/cacert.pem /etc/rabbitmq/ssl/
 cd /etc/rabbitmq/
-sudo touch rabbitmq.config && sudo chmod a+w+x rabbitmq.config
+sudo touch rabbitmq.config &&  sudo chmod a+w+x rabbitmq.config
 echo "[
     {rabbit, [
     {ssl_listeners, [5671]},
