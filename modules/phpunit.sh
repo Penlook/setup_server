@@ -1,10 +1,6 @@
 #!/bin/bash
-sudo pear channel-discover pear.phpunit.de
-
-sudo pear channel-discover pear.symfony-project.com
-
-sudo pear channel-discover pear.symfony.com
-
-sudo pear channel-discover components.ez.no
-
-sudo pear install --alldeps phpunit/PHPUnit
+cd /tmp
+wget https://phar.phpunit.de/phpunit.phar
+chmod +x phpunit.phar
+sudo mv phpunit.phar /usr/bin/phpunit
+phpunit --version
