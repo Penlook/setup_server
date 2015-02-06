@@ -1,2 +1,2 @@
 #!/bin/bash
-apt-get install proftpd
+yum install ftp proftpd

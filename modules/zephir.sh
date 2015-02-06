@@ -11,7 +11,7 @@ rm -rf ../json-c
 yum install -y re2c
 
 cd /usr/local/src
-wget https://github.com/darkgaro/zephir/archive/master.zip
+wget https://github.com/cphalcon/zephir/archive/master.zip
 unzip master.zip
 rm -rf master.zip
 cd zephir-master
