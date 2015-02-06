@@ -27,6 +27,7 @@ rm -rf setuptools-1.4.2
 
 wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 python2.7 get-pip.py
-pip install virtualenv  --upgrade
+pip install virtualenv --upgrade
 pip install redis  --upgrade
+pip install nose --upgrade
 rm -rf get-pip.py
