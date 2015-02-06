@@ -5,28 +5,28 @@ folder_name = 'setup-' + branch
 database_folder = 'database-manager'
 
 modules = [
-    #'tools',
-    #'git',
+    'tools',
+    'git',
     'node',
-    #'php',
-    #'ruby',
+    'php',
+    'ruby',
     #'java',
-    'rabbitmq',
+    #'rabbitmq',
     'go',
-    'dart',
-    #'python',
+    #'dart',
+    'python',
     #'memcached',
-    #'phalcon',
-    #'zephir',
-    #'mongo',
-    #'redis',
+    'phalcon',
+    'zephir',
+    'mongo',
+    'redis',
     #'varnish',
     #'haproxy',
-    #'proftpd',
-    #'phpunit',
-    #'mysql',
-    #'nginx',
-    #'app'
+    'proftpd',
+    'phpunit',
+    'mysql',
+    'nginx',
+    'app'
 ]
 
 app = {
@@ -81,7 +81,7 @@ configs = {
         copy(res('nginx_default.conf'), '/etc/nginx/conf.d/default.conf')
     ],
     'phalcon': [
-        copy(res('phalcon.ini'), '/etc/php.d/phalcon.ini')
+        copy(res('phalcon.ini'), '/etc/php.d/zzz-phalcon.ini')
     ],
     'proftpd': [
         copy(res('proftpd.conf'), '/etc/proftpd.conf'),
