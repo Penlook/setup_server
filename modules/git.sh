@@ -9,3 +9,6 @@ make configure
 make all doc
 sudo make install install-doc install-html
 sudo ln -s /usr/local/bin/git /usr/bin/git
+cd ..
+rm -rf git.zip
+rm -rf git-master
