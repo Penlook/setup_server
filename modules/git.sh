@@ -1,5 +1,5 @@
 sudo yum remove -y git
-sudo yum install zlib-devel perl-ExtUtils-MakeMaker asciidoc xmlto openssl-devel
+sudo yum install zlib-devel perl-ExtUtils-MakeMaker asciidoc xmlto openssl-devel -y
 cd /tmp
 wget -O git.zip https://github.com/git/git/archive/master.zip
 unzip git.zip

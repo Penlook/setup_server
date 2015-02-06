@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo yum install -y erlang
 sudo rpm --import http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
-sudo yum install rabbitmq-server--1.noarch.rpm
+sudo yum install rabbitmq-server--1.noarch.rpm -y
 sudo git clone git://github.com/joemiller/joemiller.me-intro-to-sensu.git
 cd joemiller.me-intro-to-sensu/
 sudo ./ssl_certs.sh clean
