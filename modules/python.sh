@@ -30,4 +30,5 @@ python2.7 get-pip.py
 pip install virtualenv --upgrade
 pip install redis  --upgrade
 pip install nose --upgrade
+pip install pyyaml --upgrade
 rm -rf get-pip.py
