@@ -42,7 +42,7 @@ ln -s /usr/local/src/phalcon-devtools/phalcon.php /usr/bin/phalcon
 cd $TMP
 
 # INSTALL ZEPHIR
-sudo apt-get install re2c php5 php5-json libpcre3-dev
+sudo apt-get -y install re2c php5 php5-json libpcre3-dev
 
 cd /tmp
 git clone https://github.com/json-c/json-c.git
