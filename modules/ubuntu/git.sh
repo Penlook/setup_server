@@ -7,7 +7,7 @@ cd git-master
 make configure
 ./configure --prefix=/usr/local
 make all doc
-sudo make install install-doc install-html
+sudo make install
 sudo ln -s /usr/local/bin/git /usr/bin/git
 cd ..
 rm -rf git.zip

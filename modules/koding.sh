@@ -21,7 +21,22 @@ cd utils
 sudo ./install_server.sh
 rm -rf /tmp/redis-stable
 
-# INSTALL PHP
+# INSTALL GIT
+sudo apt-get -y install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
+
+cd /tmp
+wget -O git.zip https://github.com/git/git/archive/master.zip
+unzip git.zip
+cd git-master
+make configure
+./configure --prefix=/usr/local
+make all doc
+sudo make install
+sudo ln -s /usr/local/bin/git /usr/bin/git
+cd ..
+rm -rf git.zip
+rm -rf git-master
+
 
 
 # CLEAN MEMORY
