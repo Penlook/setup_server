@@ -14,5 +14,4 @@ cd redis-stable
 make && sudo make install
 cd utils
 sudo ./install_server.sh
-cd ../../
-rm -rf redis-stable
+rm -rf /tmp/redis-stable

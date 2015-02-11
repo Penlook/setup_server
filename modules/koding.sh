@@ -17,8 +17,9 @@ wget http://download.redis.io/releases/redis-stable.tar.gz
 tar -xvf redis-stable.tar.gz
 cd redis-stable
 make && sudo make install
-cd ..
-rm -rf redis-stable
+cd utils
+sudo ./install_server.sh
+rm -rf /tmp/redis-stable
 
 # INSTALL PHP
 
