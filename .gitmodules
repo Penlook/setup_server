@@ -1,6 +1,6 @@
-[submodule "database-manager/mongo"]
-	path = database-manager/mongo
+[submodule "myadmin/mongo"]
+	path = myadmin/mongo
 	url = git@github.com:iwind/rockmongo.git
-[submodule "database-manager/redis"]
-	path = database-manager/redis
+[submodule "myadmin/redis"]
+	path = myadmin/redis
 	url = git@github.com:ErikDubbelboer/phpRedisAdmin.git

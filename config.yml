@@ -1,0 +1,28 @@
+install:
+	tools
+    git
+    node
+    php
+    ruby
+    java
+    go
+    dart
+    python
+    memcached
+    phalcon
+    zephir
+    rabbitmq
+    mongo
+    redis
+    varnish
+    haproxy
+    proftpd
+    phpunit
+    mysql
+    nginx
+    app
+admin:
+	mysql: phpmyadmin/phpmyadmin
+	redis: ErikDubbelboer/phpRedisAdmin
+	mongo: iwind/rockmongo
+
