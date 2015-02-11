@@ -5,24 +5,24 @@ USER=`whoami`
 sudo rm -rf /home/root/*
 sudo rm -rf /home/$USER/*
 sudo apt-get -y --force-yes autoremove python* java* ruby* ruby1.9.1* apache2* apache2-* git vim-* golang-* cpp-* ftp
-sudo apt-get autoremove binutils libcloog-isl4 libfreetype6 libgmp10 libisl10 libmpc3 libmpfr4 os-prober
+sudo apt-get -y --force-yes autoremove binutils libcloog-isl4 libfreetype6 libgmp10 libisl10 libmpc3 libmpfr4 os-prober
 
 # INSTALL ESSENTIAL
 sudo apt-get update
-sudo apt-get install tcl8.5 build-essential -y
+sudo apt-get -y install tcl8.5 build-essential
 
 # INSTALL REDIS
-sudo apt-get install redis-server
+sudo apt-get -y install redis-server
 
 # INSTALL GIT
 sudo apt-get -y install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
-sudo apt-get install git-core
+sudo apt-get -y install git-core
 
 # INSTALL NGINX
-sudo apt-get install nginx
+sudo apt-get -y install nginx
 
 # INSTALL PHALCON
-sudo apt-get install php5-dev php5-mysql
+sudo apt-get -y install php5-dev php5-mysql
 
 TMP=/tmp
 cd $TMP
