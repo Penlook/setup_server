@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo apt-get install php5-dev php5-mysql
+
 TMP=/tmp
 cd $TMP
 
