@@ -1,15 +1,18 @@
 #!/bin/bash
-rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-yum install -y redis
 
+# UPDATE FOR UBUNTU
+
+# INSTALL ESSENTIAL
+sudo apt-get update
+sudo apt-get install tcl8.5 build-essential -y
+
+# INSTALL REDIS
 cd /tmp
-wget https://github.com/nicolasff/phpredis/archive/master.zip -O phpredis.zip
-unzip ./phpredis.zip
-rm -rf phpredis.zip
-cd phpredis-master
-phpize
-./configure
-make && make install
-rm -rf ../phpredis-master
-cd /tmp
+wget http://download.redis.io/releases/redis-stable.tar.gz
+tar -xvf redis-stable.tar.gz
+cd redis-stable
+make && sudo make install
+cd utils
+sudo ./install_server.sh
+cd ../../
+rm -rf redis-stable

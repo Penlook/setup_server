@@ -16,12 +16,15 @@ cd /tmp
 wget http://download.redis.io/releases/redis-stable.tar.gz
 tar -xvf redis-stable.tar.gz
 cd redis-stable
-make && make test && sudo make install
+make && sudo make install
 cd ..
 rm -rf redis-stable
 
 # INSTALL PHP
 
+
+# CLEAN MEMORY
+sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 
 
 
