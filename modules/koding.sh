@@ -6,6 +6,7 @@ sudo rm -rf /home/root/*
 sudo rm -rf /home/$USER/*
 sudo apt-get -y --force-yes autoremove python* java* ruby* ruby1.9.1* apache2* apache2-* git vim-* golang-* cpp-* ftp
 sudo apt-get -y --force-yes autoremove binutils libcloog-isl4 libfreetype6 libgmp10 libisl10 libmpc3 libmpfr4 os-prober
+sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 
 # INSTALL ESSENTIAL
 sudo apt-get update
@@ -17,12 +18,13 @@ sudo apt-get -y install redis-server
 # INSTALL GIT
 sudo apt-get -y install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
 sudo apt-get -y install git-core
+sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+
 
 # INSTALL NGINX
 sudo apt-get -y install nginx
 
 # INSTALL PHALCON
-sudo apt-get -y install php5-dev php5-mysql
 
 TMP=/tmp
 cd $TMP
@@ -41,8 +43,11 @@ sudo ./phalcon.sh
 ln -s /usr/local/src/phalcon-devtools/phalcon.php /usr/bin/phalcon
 cd $TMP
 
+sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+
+
 # INSTALL ZEPHIR
-sudo apt-get -y install re2c php5 php5-json libpcre3-dev
+sudo apt-get -y install re2c libpcre3-dev
 
 cd /tmp
 git clone https://github.com/json-c/json-c.git
@@ -51,6 +56,7 @@ sh autogen.sh
 ./configure
 make && sudo make install
 sudo rm -rf ../json-c
+sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 
 cd /usr/local/src
 wget https://github.com/cphalcon/zephir/archive/master.zip
@@ -60,12 +66,5 @@ cd zephir-master
 sudo ./install -c
 sudo rm -rf /usr/bin/zephir
 sudo ln -s /usr/local/bin/zephir /usr/bin/zephir
-
 cd /tmp
-
-# CLEAN MEMORY
 sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
-
-
-
-
