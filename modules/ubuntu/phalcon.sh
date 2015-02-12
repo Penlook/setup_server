@@ -1,20 +1,28 @@
 #!/bin/bash
-sudo apt-get install php5-dev php5-mysql
+# INSTALL PHALCON
+sudo apt-get install -y php5-dev
 
-TMP=/tmp
-cd $TMP
+mkdir -p /usr/local/src
+sudo chmod a+w /usr/local/src -R
 
+cd /tmp
 git clone --depth=1 git://github.com/phalcon/cphalcon.git
 cd cphalcon/build
-./install
-cd $TMP
+sudo ./install
+PHALCON_INI=/etc/php5/cli/conf.d/90-phalcon.ini
+sudo touch $PHALCON_INI
+sudo chmod a+w $PHALCON_INI
+echo "extension=phalcon.so;" > $PHALCON_INI
 
-rm -rf cphalcon
+sudo service php5-fpm restart
 
+# INSTALL PHALCON TOOLS
 cd /usr/local/src
 git clone https://github.com/phalcon/phalcon-devtools
 cd phalcon-devtools
-./phalcon.sh
-ln -s /usr/local/src/phalcon-devtools/phalcon.php /usr/bin/phalcon
+sudo ./phalcon.sh
+sudo rm -rf /usr/bin/phalcon
+sudo ln -s /usr/local/src/phalcon-devtools/phalcon.php /usr/bin/phalcon
 
-cd $TMP
+sudo rm -rf /tmp/*
+sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
