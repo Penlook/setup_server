@@ -7,7 +7,7 @@
 USER=`whoami`
 sudo rm -rf /home/root/*
 sudo rm -rf /home/$USER/*
-sudo apt-get -y --force-yes autoremove python3* java* ruby* ruby1.9.1* apache2* apache2-* git vim-* golang-* cpp-* ftp
+sudo apt-get -y --force-yes autoremove python3* java* ruby* ruby1.9.1* apache2* apache2-* vim-* golang-* cpp-* ftp
 sudo apt-get -y --force-yes autoremove binutils libcloog-isl4 libfreetype6 libgmp10 libisl10 libmpc3 libmpfr4 os-prober
 sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 
@@ -17,11 +17,6 @@ sudo apt-get -y install tcl8.5 build-essential
 
 # INSTALL REDIS
 sudo apt-get -y install redis-server
-
-# INSTALL GIT
-sudo apt-get -y install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
-sudo apt-get -y install git-core
-sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 
 # INSTALL NGINX
 sudo apt-get -y install nginx php5-fpm
