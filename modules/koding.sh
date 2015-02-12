@@ -27,7 +27,7 @@ sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 sudo apt-get -y install nginx php5-fpm
 
 # INSTALL PHALCON
-sudo apt-get install -y php5-dev
+sudo apt-get install -y php5-dev libpcre3 libpcre3-dev
 
 mkdir -p /usr/local/src
 sudo chmod a+w /usr/local/src -R
@@ -56,7 +56,7 @@ sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 
 
 # INSTALL ZEPHIR
-sudo apt-get -y install re2c libpcre3-dev
+sudo apt-get -y install re2c libpcre3 libpcre3-dev
 
 cd /usr/local/src
 git clone https://github.com/phalcon/zephir.git --recursive --depth=1 -b master

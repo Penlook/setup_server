@@ -1,6 +1,6 @@
 #!/bin/bash
 # INSTALL PHALCON
-sudo apt-get install -y php5-dev
+sudo apt-get install -y php5-dev libpcre3 libpcre3-dev
 
 mkdir -p /usr/local/src
 sudo chmod a+w /usr/local/src -R
