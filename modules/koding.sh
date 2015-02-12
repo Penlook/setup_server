@@ -7,7 +7,7 @@
 USER=`whoami`
 sudo rm -rf /home/root/*
 sudo rm -rf /home/$USER/*
-sudo apt-get -y --force-yes autoremove python3* java* apache2* apache2-* vim-* cpp-* ftp
+sudo apt-get -y --force-yes autoremove python3* java* apache2* apache2-* vim-* golang-* cpp-* ftp
 sudo apt-get -y --force-yes autoremove binutils libcloog-isl4 libfreetype6 libgmp10 libisl10 libmpc3 libmpfr4 os-prober
 sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 
@@ -67,3 +67,18 @@ cd ..
 sudo rm -rf /usr/bin/zephir
 sudo ln -s /usr/local/bin/zephir /usr/bin/zephir
 sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+
+# INSTALL GOLANG
+TMP=/usr/local/src
+cd $TMP
+wget https://storage.googleapis.com/golang/go1.4.1.src.tar.gz
+tar -xvf go1.4.1.src.tar.gz
+rm -rf go1.4.1.src.tar.gz
+cd go/src
+sudo ./all.bash
+GOSCRIPT="/etc/profile.d/golang.sh"
+sudo rm -rf $GOSCRIPT
+sudo touch $GOSCRIPT && sudo chmod a+w+x $GOSCRIPT
+echo "export PATH=\"\$PATH:/usr/local/src/go/bin\"" >> $GOSCRIPT
+echo -e "export GOPATH=\"$HOME\"" >> $GOSCRIPT
+source $GOSCRIPT
