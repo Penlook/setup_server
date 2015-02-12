@@ -21,9 +21,9 @@ sudo apt-get -y install redis-server
 
 # INSTALL NGINX
 sudo apt-get -y install nginx php5-fpm
-cp -rf $ROOT_SETUP/../config/nginx.conf /etc/nginx/nginx.conf
-cp -rf $ROOT_SETUP/../config/nginx_default.conf /etc/nginx/conf.d/default.conf
-sed -i -e "s/USERNAME/$USER/g" /etc/nginx/conf.d/default.conf
+sudo cp -rf $ROOT_SETUP/../config/nginx.conf /etc/nginx/nginx.conf
+sudo cp -rf $ROOT_SETUP/../config/nginx_default.conf /etc/nginx/conf.d/default.conf
+sudo sed -i -e "s/USERNAME/$USER/g" /etc/nginx/conf.d/default.conf
 sudo service nginx restart
 
 # INSTALL PHALCON
