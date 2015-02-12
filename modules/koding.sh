@@ -2,6 +2,7 @@
 
 # List all installed packages
 # dpkg --get-selections | grep -v deinstall
+ROOT_SETUP=`dirname "$0"`
 
 # REMOVE ALL COMPONENT
 USER=`whoami`
@@ -20,6 +21,10 @@ sudo apt-get -y install redis-server
 
 # INSTALL NGINX
 sudo apt-get -y install nginx php5-fpm
+cp -rf $ROOT_SETUP/../config/nginx.conf /etc/nginx/nginx.conf
+cp -rf $ROOT_SETUP/../config/nginx_default.conf /etc/nginx/conf.d/default.conf
+sed -i -e "s/USERNAME/$USER/g" /etc/nginx/conf.d/default.conf
+sudo service nginx restart
 
 # INSTALL PHALCON
 sudo apt-get install -y php5-dev libpcre3 libpcre3-dev
