@@ -84,5 +84,5 @@ GOSCRIPT="/etc/profile.d/golang.sh"
 sudo rm -rf $GOSCRIPT
 sudo touch $GOSCRIPT && sudo chmod a+w+x $GOSCRIPT
 echo "export PATH=\"\$PATH:/usr/local/src/go/bin\"" >> $GOSCRIPT
-echo -e "export GOPATH=\"$HOME\"" >> $GOSCRIPT
+echo "export GOPATH=\"$HOME\"" >> $GOSCRIPT
 source $GOSCRIPT
