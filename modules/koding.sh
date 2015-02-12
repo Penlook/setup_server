@@ -7,7 +7,7 @@
 USER=`whoami`
 sudo rm -rf /home/root/*
 sudo rm -rf /home/$USER/*
-sudo apt-get -y --force-yes autoremove python3* java* ruby* ruby1.9.1* apache2* apache2-* vim-* golang-* cpp-* ftp
+sudo apt-get -y --force-yes autoremove python3* java* apache2* apache2-* vim-* cpp-* ftp
 sudo apt-get -y --force-yes autoremove binutils libcloog-isl4 libfreetype6 libgmp10 libisl10 libmpc3 libmpfr4 os-prober
 sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 
