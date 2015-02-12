@@ -30,7 +30,7 @@ def main(argv):
 	os.system("./modules/koding.sh")
 
 if __name__ == "__main__":
-	if (len(sys.argv) < 2):
+	if len(sys.argv) > 1:
    		main(sys.argv[1:])
    	else:
    		print 'Which system do you want to make install ?'
