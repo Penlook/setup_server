@@ -25,8 +25,12 @@
 import sys, os
 
 def main(argv):
-	print ' ---------- SETUP for ' + string(argv[0]) + ' -----------'
+	print ' ---------- SETUP for ' + argv[0] + ' -----------'
+	os.system("chmod +x ./modules/koding.sh")
 	os.system("./modules/koding.sh")
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+	if (len(sys.argv) < 2):
+   		main(sys.argv[1:])
+   	else:
+   		print 'Which system do you want to make install ?'
