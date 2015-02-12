@@ -1,27 +1,7 @@
-Koding VPS
+Penlook Setup
 =====
-One click to setup development environment based on Koding - Unbuntu Server
-```
-curl https://raw.githubusercontent.com/penlook/server/koding/koding.py | python
-```
-#Prerequisites
-- OS  : CentOS 6.5
-- HDD : >= 8 GB
-- RAM : >= 512 MB
 
-#Software
-- SSHD
-- FTP
+Build status
 
-###FTP
-	user: test
-	password: 123456789
-
-###MySQL
-	user: root
-	password: 123456789
-
-###Mongo
-	user: admin
-	password: admin
+[![Build Status](https://travis-ci.org/penlook/setup.svg?branch=master)](https://travis-ci.org/penlook/setup) [![Software License](https://img.shields.io/badge/license-GNU-blue.svg?style=flat)](LICENSE.md) [![Author](http://img.shields.io/badge/author-penlook-red.svg?style=flat)](https://github.com/penlook)
 
