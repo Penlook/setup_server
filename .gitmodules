@@ -1,6 +1,0 @@
-[submodule "myadmin/mongo"]
-	path = myadmin/mongo
-	url = git@github.com:iwind/rockmongo.git
-[submodule "myadmin/redis"]
-	path = myadmin/redis
-	url = git@github.com:ErikDubbelboer/phpRedisAdmin.git
