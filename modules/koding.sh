@@ -24,6 +24,7 @@ sudo apt-get -y install nginx php5-fpm
 sudo cp -rf $ROOT_SETUP/../config/nginx.conf /etc/nginx/nginx.conf
 sudo cp -rf $ROOT_SETUP/../config/nginx_default.conf /etc/nginx/conf.d/default.conf
 sudo sed -i -e "s/USERNAME/$USER/g" /etc/nginx/conf.d/default.conf
+sudo useradd --no-create-home nginx
 sudo service nginx restart
 
 # INSTALL PHALCON
@@ -76,11 +77,9 @@ sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 # INSTALL GOLANG
 TMP=/usr/local/src
 cd $TMP
-wget https://storage.googleapis.com/golang/go1.4.1.src.tar.gz
-tar -xvf go1.4.1.src.tar.gz
-rm -rf go1.4.1.src.tar.gz
-cd go/src
-sudo ./all.bash
+sudo wget "https://doc-08-ag-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/g62v8cq1u59mc0oqthu62km12jdomosv/1423749600000/17652126860934440355/*/0B0PHxCaWI5qDM1dmWXk1VWZHeWM?e=download" -O go.tar
+sudo tar -xvf go.tar
+sudo rm -rf go.tar
 GOSCRIPT="/etc/profile.d/golang.sh"
 sudo rm -rf $GOSCRIPT
 sudo touch $GOSCRIPT && sudo chmod a+w+x $GOSCRIPT
