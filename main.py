@@ -22,10 +22,11 @@
 # |   Author: Loi Nguyen  <loint@penlook.com>                                |
 # +--------------------------------------------------------------------------+
 
-sys.path.append("./setup")
-from setup import *
+import sys, os
 
-setup = Setup()
-setup.set_os()
-setup.set_root("./")
-setup.run()
+def main(argv):
+	print ' ---------- SETUP for ' + string(argv[0]) + ' -----------'
+	os.system("./modules/koding.sh")
+
+if __name__ == "__main__":
+   main(sys.argv[1:])
