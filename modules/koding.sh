@@ -131,8 +131,8 @@ echo "export GOPATH=\"$HOME\"" >> $GOSCRIPT
 
 # INSTALL PIP
 sudo apt-get -y install python-pip
-pip install virtualenv --upgrade
-pip install redis  --upgrade
-pip install nose --upgrade
-pip install pyyaml --upgrade
+sudo pip install virtualenv --upgrade
+sudo pip install redis  --upgrade
+sudo pip install nose --upgrade
+sudo pip install pyyaml --upgrade
 
