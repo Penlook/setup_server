@@ -1,5 +1,30 @@
 #!/bin/bash
 
+# Penlook Project
+#
+# Copyright (c) 2015 Penlook Development Team
+#
+# --------------------------------------------------------------------
+#
+# This program is free software: you can redistribute it and/or
+# modify it under the terms of the GNU Affero General Public License
+# as published by the Free Software Foundation, either version 3
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public
+# License along with this program.
+# If not, see <http://www.gnu.org/licenses/>.
+#
+# --------------------------------------------------------------------
+#
+# Authors:
+#     Loi Nguyen       <loint@penlook.com>
+
 # List all installed packages
 # dpkg --get-selections | grep -v deinstall
 ROOT_SETUP=`dirname "$0"`
@@ -18,9 +43,10 @@ sudo apt-get -y install tcl8.5 build-essential
 
 # INSTALL REDIS
 sudo apt-get -y install redis-server
+sudo service redis-server restart
 
 # INSTALL NGINX
-sudo apt-get -y install nginx php5-fpm
+sudo apt-get -y install nginx php5-fpm php5-redis php5-mysql php5-mongo
 sudo cp -rf $ROOT_SETUP/../config/nginx.conf /etc/nginx/nginx.conf
 sudo cp -rf $ROOT_SETUP/../config/nginx_default.conf /etc/nginx/conf.d/default.conf
 sudo sed -i -e "s/USERNAME/$USER/g" /etc/nginx/conf.d/default.conf
@@ -43,10 +69,17 @@ sudo service php5-fpm restart
 
 cd /tmp
 
-PHALCON_INI=/etc/php5/cli/conf.d/90-phalcon.ini
-sudo touch $PHALCON_INI
-sudo chmod a+w $PHALCON_INI
-echo "extension=phalcon.so;" > $PHALCON_INI
+PHALCON_INI_CLI=/etc/php5/cli/conf.d/90-phalcon.ini
+PHALCON_INI_FPM=/etc/php5/fpm/conf.d/90-phalcon.ini
+
+sudo touch $PHALCON_INI_CLI
+sudo chmod a+w $PHALCON_INI_CLI
+
+sudo touch $PHALCON_INI_FPM
+sudo chmod a+w $PHALCON_INI_FPM
+
+echo "extension=phalcon.so;" > $PHALCON_INI_CLI
+echo "extension=phalcon.so;" > $PHALCON_INI_FPM
 
 sudo service php5-fpm restart
 
@@ -94,5 +127,12 @@ sudo touch $GOSCRIPT
 sudo chmod a+w+x $GOSCRIPT
 echo "export PATH=\"\$PATH:/usr/local/src/go/bin\"" >> $GOSCRIPT
 echo "export GOPATH=\"$HOME\"" >> $GOSCRIPT
-sudo -s
-source $GOSCRIPT
+`source $GOSCRIPT`
+
+# INSTALL PIP
+sudo apt-get -y install python-pip
+pip install virtualenv --upgrade
+pip install redis  --upgrade
+pip install nose --upgrade
+pip install pyyaml --upgrade
+
