@@ -28,8 +28,8 @@ sudo useradd --no-create-home nginx
 sudo service nginx restart
 
 # CONFIGURE PHP_FPM
-#sudo cp -rf $ROOT_SETUP/../config/www.conf /etc/php5/fpm/pool.d/www.conf
-#sudo service php5-fpm restart
+sudo cp -rf $ROOT_SETUP/../config/www.conf /etc/php5/fpm/pool.d/www.conf
+sudo service php5-fpm restart
 
 # INSTALL PHALCON
 sudo apt-get install -y php5-dev libpcre3 libpcre3-dev
@@ -94,4 +94,5 @@ sudo touch $GOSCRIPT
 sudo chmod a+w+x $GOSCRIPT
 echo "export PATH=\"\$PATH:/usr/local/src/go/bin\"" >> $GOSCRIPT
 echo "export GOPATH=\"$HOME\"" >> $GOSCRIPT
+sudo -s
 source $GOSCRIPT
