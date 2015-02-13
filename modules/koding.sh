@@ -33,10 +33,11 @@ sudo apt-get install -y php5-dev libpcre3 libpcre3-dev
 mkdir -p /usr/local/src
 sudo chmod a+w /usr/local/src -R
 
+# INSTALL PHALCON
+sudo wget "https://s3-ap-southeast-1.amazonaws.com/binary-installed-package/ubuntu-phalcon.so" -O /usr/lib/php5/20121212/phalcon.so
+
 cd /tmp
-git clone --depth=1 git://github.com/phalcon/cphalcon.git
-cd cphalcon/build
-sudo ./install
+
 PHALCON_INI=/etc/php5/cli/conf.d/90-phalcon.ini
 sudo touch $PHALCON_INI
 sudo chmod a+w $PHALCON_INI
@@ -56,17 +57,19 @@ sudo rm -rf /tmp/*
 sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 
 
-# INSTALL ZEPHIR
+# INSTALL ZEPHIR/usr/lib/php5/20121212/phalcon.so
 sudo apt-get -y install re2c libpcre3 libpcre3-dev
 
 cd /usr/local/src
 git clone https://github.com/phalcon/zephir.git --recursive --depth=1 -b master
 cd zephir
 
+rm -rf json-c
+sudo wget "https://s3-ap-southeast-1.amazonaws.com/binary-installed-package/ubuntu-json-c.tar" -O json-c.tar
+sudo tar -xvf json-c.tar
+sudo rm -rf json-c.tar
 cd json-c
-sh autogen.sh
-./configure
-make && sudo make install
+sudo make install
 cd ..
 
 ./install -c
@@ -77,7 +80,7 @@ sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 # INSTALL GOLANG
 TMP=/usr/local/src
 cd $TMP
-sudo wget "https://doc-08-ag-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/g62v8cq1u59mc0oqthu62km12jdomosv/1423749600000/17652126860934440355/*/0B0PHxCaWI5qDM1dmWXk1VWZHeWM?e=download" -O go.tar
+sudo wget "https://s3-ap-southeast-1.amazonaws.com/binary-installed-package/ubuntu-go.tar" -O go.tar
 sudo tar -xvf go.tar
 sudo rm -rf go.tar
 GOSCRIPT="/etc/profile.d/golang.sh"
