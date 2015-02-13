@@ -28,8 +28,8 @@ sudo useradd --no-create-home nginx
 sudo service nginx restart
 
 # CONFIGURE PHP_FPM
-sudo cp -rf $ROOT_SETUP/../config/www.conf /etc/php5/fpm/pool.d/www.conf
-sudo service php5-fpm restart
+#sudo cp -rf $ROOT_SETUP/../config/www.conf /etc/php5/fpm/pool.d/www.conf
+#sudo service php5-fpm restart
 
 # INSTALL PHALCON
 sudo apt-get install -y php5-dev libpcre3 libpcre3-dev
@@ -62,7 +62,7 @@ sudo rm -rf /tmp/*
 sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 
 
-# INSTALL ZEPHIR/usr/lib/php5/20121212/phalcon.so
+# INSTALL ZEPHIR
 sudo apt-get -y install re2c libpcre3 libpcre3-dev
 
 cd /usr/local/src
@@ -90,7 +90,8 @@ sudo tar -xvf go.tar
 sudo rm -rf go.tar
 GOSCRIPT="/etc/profile.d/golang.sh"
 sudo rm -rf $GOSCRIPT
-sudo touch $GOSCRIPT && sudo chmod a+w+x $GOSCRIPT
+sudo touch $GOSCRIPT
+sudo chmod a+w+x $GOSCRIPT
 echo "export PATH=\"\$PATH:/usr/local/src/go/bin\"" >> $GOSCRIPT
 echo "export GOPATH=\"$HOME\"" >> $GOSCRIPT
 source $GOSCRIPT
