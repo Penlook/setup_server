@@ -27,6 +27,10 @@ sudo sed -i -e "s/USERNAME/$USER/g" /etc/nginx/conf.d/default.conf
 sudo useradd --no-create-home nginx
 sudo service nginx restart
 
+# CONFIGURE PHP_FPM
+sudo cp -rf $ROOT_SETUP/../config/www.conf /etc/php5/fpm/pool.d/www.conf
+sudo service php5-fpm restart
+
 # INSTALL PHALCON
 sudo apt-get install -y php5-dev libpcre3 libpcre3-dev
 
@@ -35,6 +39,7 @@ sudo chmod a+w /usr/local/src -R
 
 # INSTALL PHALCON
 sudo wget "https://s3-ap-southeast-1.amazonaws.com/binary-installed-package/ubuntu-phalcon.so" -O /usr/lib/php5/20121212/phalcon.so
+sudo service php5-fpm restart
 
 cd /tmp
 
