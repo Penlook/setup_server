@@ -1,3 +1,4 @@
 #!/bin/bash
-chmod +x ./centos.py
-./centos.py
+pwd
+#chmod +x ./centos.py
+#./centos.py
