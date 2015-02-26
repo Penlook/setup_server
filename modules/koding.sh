@@ -127,7 +127,7 @@ sudo touch $GOSCRIPT
 sudo chmod a+w+x $GOSCRIPT
 echo "export PATH=\"\$PATH:/usr/local/src/go/bin\"" >> $GOSCRIPT
 echo "export GOPATH=\"$HOME\"" >> $GOSCRIPT
-`source $GOSCRIPT`
+source $GOSCRIPT
 
 # INSTALL PIP
 sudo apt-get -y install python-pip
