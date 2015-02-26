@@ -22,7 +22,7 @@ modules = [
     'redis',
     #'varnish',
     #'haproxy',
-    'proftpd',
+    #'proftpd',
     'phpunit',
     'mysql',
     'nginx',
