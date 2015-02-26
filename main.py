@@ -28,7 +28,7 @@ def main(argv):
 	print ' ---------- SETUP for ' + argv[0] + ' -----------'
 	env  = argv[0]
 
-	if env == 'koding' or env == 'centos' or env == 'ubuntu'
+	if env == 'koding' or env == 'centos' or env == 'ubuntu':
 		os.system("chmod +x ./modules/" + env + ".sh")
 		os.system("./modules/"+ env +".sh")
 
