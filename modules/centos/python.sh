@@ -2,18 +2,18 @@
 sudo yum install -y xz-libs openssl-devel zlib-devel bzip2-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
 
 cd /usr/local/src
-wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz
-xz -d Python-2.7.6.tar.xz
-tar -xvf Python-2.7.6.tar
+wget https://s3-ap-southeast-1.amazonaws.com/binary-installed-package/python27.tar
+tar -xvf python27.tar
 cd Python-2.7.6
-./configure --prefix=/usr/local
-sudo make && sudo make altinstall
+sudo make altinstall
+cd ..
+rm -rf python27.tar
 
 PYSCRIPT="/etc/profile.d/python.sh"
 sudo rm -rf $PYSCRIPT
 sudo touch $PYSCRIPT && sudo chmod a+w+x $PYSCRIPT
 echo "export PATH=\"\$PATH:/usr/local/bin\"" >> $PYSCRIPT
-source $PYSCRIPT
+. $PYSCRIPT
 
 # Setup pip
 cd /tmp
