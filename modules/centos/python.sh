@@ -2,7 +2,7 @@
 sudo yum install -y xz-libs openssl-devel zlib-devel bzip2-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
 
 cd /usr/local/src
-wget https://s3-ap-southeast-1.amazonaws.com/binary-installed-package/python27.tar
+sudo wget https://s3-ap-southeast-1.amazonaws.com/binary-installed-package/python27.tar
 tar -xvf python27.tar
 cd Python-2.7.6
 sudo make altinstall
