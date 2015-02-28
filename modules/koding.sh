@@ -99,7 +99,7 @@ sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
 sudo apt-get -y install re2c libpcre3 libpcre3-dev
 
 cd /usr/local/src
-git clone https://github.com/phalcon/zephir.git --recursive --depth=1 -b master
+sudo git clone https://github.com/phalcon/zephir.git --recursive --depth=1 -b master
 cd zephir
 
 rm -rf json-c
@@ -127,7 +127,7 @@ sudo touch $GOSCRIPT
 sudo chmod a+w+x $GOSCRIPT
 echo "export PATH=\"\$PATH:/usr/local/src/go/bin\"" >> $GOSCRIPT
 echo "export GOPATH=\"$HOME\"" >> $GOSCRIPT
-source $GOSCRIPT
+. $GOSCRIPT
 
 # INSTALL PIP
 sudo apt-get -y install python-pip

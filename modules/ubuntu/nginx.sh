@@ -1,4 +1,16 @@
-#!/bin/bash
-rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-yum install -y nginx16
+# INSTALL NGINX
+ROOT_SETUP=`dirname "$0"`
+
+# REMOVE ALL COMPONENT
+USER=`whoami`
+
+sudo apt-get -y install nginx php5-fpm php5-redis php5-mysql php5-mongo
+sudo cp -rf $ROOT_SETUP/../../config/nginx.conf /etc/nginx/nginx.conf
+sudo cp -rf $ROOT_SETUP/../../config/nginx_default.conf /etc/nginx/conf.d/default.conf
+sudo sed -i -e "s/USERNAME/$USER/g" /etc/nginx/conf.d/default.conf
+sudo useradd --no-create-home nginx
+sudo service nginx restart
+
+# CONFIGURE PHP_FPM
+sudo cp -rf $ROOT_SETUP/../../config/www.conf /etc/php5/fpm/pool.d/www.conf
+sudo service php5-fpm restart

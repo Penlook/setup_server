@@ -1,17 +1,16 @@
-#!/bin/bash
-sudo apt-get install git gcc make re2c php5 php5-json php5-dev libpcre3-dev
-
 # INSTALL ZEPHIR
-sudo apt-get -y install re2c libpcre3-dev
+sudo apt-get -y install re2c libpcre3 libpcre3-dev
 
 cd /usr/local/src
-git clone https://github.com/phalcon/zephir.git --recursive --depth=1 -b master
+sudo git clone https://github.com/phalcon/zephir.git --recursive --depth=1 -b master
 cd zephir
 
+rm -rf json-c
+sudo wget "https://s3-ap-southeast-1.amazonaws.com/binary-installed-package/ubuntu-json-c.tar" -O json-c.tar
+sudo tar -xvf json-c.tar
+sudo rm -rf json-c.tar
 cd json-c
-sh autogen.sh
-./configure
-make && sudo make install
+sudo make install
 cd ..
 
 ./install -c
