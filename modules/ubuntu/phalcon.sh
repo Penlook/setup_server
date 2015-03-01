@@ -14,17 +14,30 @@ sudo service php5-fpm restart
 
 cd /tmp
 
+# REDIS
+git clone https://github.com/phpredis/phpredis.git
+cd phpredis
+phpize
+./configure
+make && sudo make install
+
 PHALCON_PDO_CLI=/etc/php5/cli/conf.d/20-pdo-mysql.ini
 PHALCON_PDO_FPM=/etc/php5/fpm/conf.d/20-pdo-mysql.ini
 
 PHALCON_JSON_CLI=/etc/php5/cli/conf.d/10-json.ini
 PHALCON_JSON_FPM=/etc/php5/fpm/conf.d/10-json.ini
 
+PHALCON_REDIS_CLI=/etc/php5/cli/conf.d/20-redis.ini
+PHALCON_REDIS_FPM=/etc/php5/fpm/conf.d/20-redis.ini
+
 PHALCON_INI_CLI=/etc/php5/cli/conf.d/90-phalcon.ini
 PHALCON_INI_FPM=/etc/php5/fpm/conf.d/90-phalcon.ini
 
 sudo touch $PHALCON_INI_CLI
 sudo chmod a+w $PHALCON_INI_CLI
+
+sudo touch $PHALCON_REDIS_CLI
+sudo chmod a+w $PHALCON_REDIS_CLI
 
 sudo touch $PHALCON_JSON_FPM
 sudo chmod a+w $PHALCON_JSON_FPM
@@ -34,6 +47,9 @@ sudo chmod a+w $PHALCON_PDO_FPM
 
 echo "extension=phalcon.so;" > $PHALCON_INI_CLI
 echo "extension=phalcon.so;" > $PHALCON_INI_FPM
+
+echo "extension=redis.so;" > $PHALCON_REDIS_CLI
+echo "extension=redis.so;" > $PHALCON_REDIS_FPM
 
 echo "extension=pdo.so;" > $PHALCON_PDO_CLI
 echo "extension=pdo.so;" > $PHALCON_PDO_FPM
