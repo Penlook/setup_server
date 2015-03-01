@@ -14,17 +14,32 @@ sudo service php5-fpm restart
 
 cd /tmp
 
+PHALCON_PDO_CLI=/etc/php5/cli/conf.d/20-pdo-mysql.ini
+PHALCON_PDO_FPM=/etc/php5/fpm/conf.d/20-pdo-mysql.ini
+
+PHALCON_JSON_CLI=/etc/php5/cli/conf.d/10-json.ini
+PHALCON_JSON_FPM=/etc/php5/fpm/conf.d/10-json.ini
+
 PHALCON_INI_CLI=/etc/php5/cli/conf.d/90-phalcon.ini
 PHALCON_INI_FPM=/etc/php5/fpm/conf.d/90-phalcon.ini
 
 sudo touch $PHALCON_INI_CLI
 sudo chmod a+w $PHALCON_INI_CLI
 
-sudo touch $PHALCON_INI_FPM
-sudo chmod a+w $PHALCON_INI_FPM
+sudo touch $PHALCON_JSON_FPM
+sudo chmod a+w $PHALCON_JSON_FPM
+
+sudo touch $PHALCON_PDO_FPM
+sudo chmod a+w $PHALCON_PDO_FPM
 
 echo "extension=phalcon.so;" > $PHALCON_INI_CLI
 echo "extension=phalcon.so;" > $PHALCON_INI_FPM
+
+echo "extension=pdo.so;" > $PHALCON_PDO_CLI
+echo "extension=pdo.so;" > $PHALCON_PDO_FPM
+
+echo "extension=json.so;" > $PHALCON_JSON_CLI
+echo "extension=json.so;" > $PHALCON_JSON_FPM
 
 sudo service php5-fpm restart
 
