@@ -37,6 +37,8 @@ install gcc
 install go
 install python
 install redis
+install mongo
+install mysql
 install php
 install nginx
 install phpunit

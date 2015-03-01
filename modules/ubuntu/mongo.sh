@@ -1,3 +1,6 @@
 #!/bin/bash
-yum install -y mongodb-org
-yum install -y mongodb-org-2.6.1 mongodb-org-server-2.6.1 mongodb-org-shell-2.6.1 mongodb-org-mongos-2.6.1 mongodb-org-tools-2.6.1
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" | sudo tee -a /etc/apt/sources.list.d/10gen.list
+sudo apt-get -y update
+sudo apt-get -y install mongodb-10gen
+sudo service mongodb restart
