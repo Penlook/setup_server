@@ -5,7 +5,11 @@ sudo mkdir -p /usr/local/src
 sudo chmod a+w /usr/local/src -R
 
 # INSTALL PHALCON
-sudo wget "https://s3-ap-southeast-1.amazonaws.com/binary-installed-package/ubuntu-phalcon.so" -O /usr/lib/php5/20121212/phalcon.so
+cd /tmp
+
+git clone git://github.com/phalcon/cphalcon.git
+cd cphalcon/build
+sudo ./install
 sudo service php5-fpm restart
 
 cd /tmp
