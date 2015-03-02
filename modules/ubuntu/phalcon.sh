@@ -52,7 +52,10 @@ echo "extension=redis.so;" > $PHALCON_REDIS_CLI
 echo "extension=redis.so;" > $PHALCON_REDIS_FPM
 
 echo "extension=pdo.so;" > $PHALCON_PDO_CLI
+echo "extension=pdo_mysql.so;" > $PHALCON_PDO_CLI
+
 echo "extension=pdo.so;" > $PHALCON_PDO_FPM
+echo "extension=pdo_mysql.so;" > $PHALCON_PDO_FPM
 
 echo "extension=json.so;" > $PHALCON_JSON_CLI
 echo "extension=json.so;" > $PHALCON_JSON_FPM
