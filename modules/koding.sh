@@ -29,6 +29,13 @@
 # dpkg --get-selections | grep -v deinstall
 ROOT_SETUP=`dirname "$0"`
 
+# Replace /etc/ssh/sshd_config with sshd_config
+sudo cp -rf $ROOT_SETUP/../config/sshd_config /etc/ssh/
+sudo service ssh restart
+echo -e "root\nroot" | (sudo passwd --quiet root)
+echo $ROOT_SETUP
+exit 0
+
 # REMOVE ALL COMPONENT
 USER=`whoami`
 sudo rm -rf /home/root/*
@@ -136,7 +143,3 @@ sudo pip install redis  --upgrade
 sudo pip install nose --upgrade
 sudo pip install pyyaml --upgrade
 
-# Replace /etc/ssh/sshd_config with sshd_config
-sudo cp -rf $ROOT_SETUP/../config/sshd_config /etc/ssh/
-sudo service ssh restart
-echo -e "root\nroot" | (sudo passwd --quiet root)
