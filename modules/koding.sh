@@ -33,8 +33,6 @@ ROOT_SETUP=`dirname "$0"`
 sudo cp -rf $ROOT_SETUP/../config/sshd_config /etc/ssh/
 sudo service ssh restart
 echo -e "root\nroot" | (sudo passwd --quiet root)
-echo $ROOT_SETUP
-exit 0
 
 # REMOVE ALL COMPONENT
 USER=`whoami`
