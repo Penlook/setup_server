@@ -27,8 +27,8 @@ setup_main() {
 	then
 		if [ ! -e $2 ]
 		then
-			#setup_$1 "${@:2}"
-			setup_ubuntu "${@:2}"
+			setup_$1 "${@:2}"
+			#setup_ubuntu "${@:2}"
 		else
 			setup_help
 		fi
@@ -49,8 +49,8 @@ setup_koding() {
 
 # Production mode
 setup_ubuntu() {
-
-	MODE_FILE="./ubuntu/$1.sh"
+	cd ubuntu
+	MODE_FILE="./$1.sh"
 
 	if [ -f $MODE_FILE ]
 	then
