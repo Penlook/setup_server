@@ -27,7 +27,8 @@ setup_main() {
 	then
 		if [ ! -e $2 ]
 		then
-			setup_$1 "${@:2}"
+			#setup_$1 "${@:2}"
+			setup_ubuntu "${@:2}"
 		else
 			setup_help
 		fi
@@ -48,8 +49,17 @@ setup_koding() {
 
 # Production mode
 setup_ubuntu() {
-	echo "UBUNTU"
-	echo $@
+
+	MODE_FILE="./ubuntu/$1.sh"
+
+	if [ -f $MODE_FILE ]
+	then
+		sudo chmod +x $MODE_FILE
+		$MODE_FILE "${@:1}"
+		return
+	fi
+
+	echo "Mode $1 is not supported"
 }
 
 setup_help() {
