@@ -115,7 +115,7 @@ cd json-c
 sudo make install
 cd ..
 
-./install -c
+sudo ./install -c
 sudo rm -rf /usr/bin/zephir
 sudo ln -s /usr/local/bin/zephir /usr/bin/zephir
 sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
