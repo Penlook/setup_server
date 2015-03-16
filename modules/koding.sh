@@ -33,7 +33,7 @@ USER=`whoami`
 # Replace /etc/ssh/sshd_config with sshd_config
 sudo cp -rf $ROOT_SETUP/../config/sshd_config /etc/ssh/
 sudo service ssh restart
-echo -e "$USER\nroot" | (sudo passwd --quiet $USER)
+echo -e "root\nroot" | (sudo passwd --quiet $USER)
 
 # REMOVE ALL COMPONENT
 sudo rm -rf /home/root/*
