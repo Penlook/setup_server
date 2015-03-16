@@ -28,14 +28,14 @@
 # List all installed packages
 # dpkg --get-selections | grep -v deinstall
 ROOT_SETUP=`dirname "$0"`
+USER=`whoami`
 
 # Replace /etc/ssh/sshd_config with sshd_config
 sudo cp -rf $ROOT_SETUP/../config/sshd_config /etc/ssh/
 sudo service ssh restart
-echo -e "root\nroot" | (sudo passwd --quiet root)
+echo -e "$USER\nroot" | (sudo passwd --quiet $USER)
 
 # REMOVE ALL COMPONENT
-USER=`whoami`
 sudo rm -rf /home/root/*
 sudo rm -rf /home/$USER/*
 sudo apt-get -y --force-yes autoremove java* apache2* apache2-* vim-* golang-* cpp-* ftp
