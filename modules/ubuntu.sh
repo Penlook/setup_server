@@ -32,17 +32,39 @@ function install {
 	$ROOT/$1.sh
 }
 
-install tools
-install gcc
-install go
-install python
-install redis
-install mongo
-install mysql
-install php
-install nginx
-install phpunit
-install phalcon
-install zephir
+#install tools
+#install gcc
+#install go
+#install python
+#install redis
+#install mongo
+#install mysql
+#install php
+#install nginx
+#install phpunit
+#install phalcon
+#install zephir
 
+development() {
+	echo "SETTING UP DEVELOPMENT"
+}
+
+production() {
+	echo "SETTING UP PRODUCTION"
+}
+
+database() {
+	echo "SETTING UP DATABASE"
+}
+
+main() {
+	if  [ `type -t $1`"" == 'function' ]
+	then
+		echo "OK"
+	else
+		help
+	fi
+}
+
+main $@
 

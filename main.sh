@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/bin/bash
 # +--------------------------------------------------------------------------+
 # | Penlook Project                                                          |
 # +--------------------------------------------------------------------------+
@@ -21,20 +21,47 @@
 # +--------------------------------------------------------------------------+
 # |   Author: Loi Nguyen  <loint@penlook.com>                                |
 # +--------------------------------------------------------------------------+
+setup_main() {
+	cd modules
+	if  [ `type -t setup_$1`"" == 'function' ]
+	then
+		if [ ! -e $2 ]
+		then
+			setup_$1 "${@:2}"
+		else
+			setup_help
+		fi
+	else
+		echo "Currently, Your OS is not supported !"
+	fi
+}
 
-import sys, os
+setup_koding() {
+	if [ "$1" == "development" ]
+	then
+		sudo chmod +x ./koding.sh
+		./koding.sh
+	else
+		echo "Mode $1 is not supported"
+	fi
+}
 
-def main(argv):
-	print ' ---------- SETUP for ' + argv[0] + ' -----------'
-	env  = argv[0]
+# Production mode
+setup_ubuntu() {
+	echo "UBUNTU"
+	echo $@
+}
 
-	if env == 'koding' or env == 'centos' or env == 'ubuntu':
-		os.system("chmod +x ./modules/" + env + ".sh")
-		os.system("./modules/"+ env +".sh")
+setup_help() {
+	echo
+	echo "Usage: penlook setup <type>"
+	echo "Types:"
+    echo
+    echo "  development  Development Environment"
+    echo "  production   Production Environment"
+    echo "  database     Database Server"
+    echo
+}
 
+setup_main $@
 
-if __name__ == "__main__":
-	if len(sys.argv) > 1:
-   		main(sys.argv[1:])
-   	else:
-   		print 'Which system do you want to make install ?'
