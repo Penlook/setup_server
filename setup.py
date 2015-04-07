@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 branch = 'master'
-git = 'https://github.com/Penlook/setup_server/archive/' + branch + '.zip'
+git = 'https://github.com/penlook/setup/archive/centos.zip'
 folder_name = 'setup-' + branch
 database_folder = 'database-manager'
 
