@@ -21,7 +21,7 @@ modules = [
     'haproxy',
     'proftpd',
     'phpunit',
-    'mysql',
+#    'mysql',
     'nginx',
     'app'
 ]
